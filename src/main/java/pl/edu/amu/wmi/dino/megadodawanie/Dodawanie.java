@@ -12,6 +12,13 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -52,7 +59,26 @@ public class Dodawanie {
                 return "169"; 
         }
 
-
+        String timeA = a;
+        String timeB = b;
+        
+        if (a.contains(":") || b.contains(":"))
+        {
+            try {
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                timeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                
+                Date dateA = timeFormat.parse(timeA);
+                Date dateB = timeFormat.parse(timeB);
+                
+                long sum = dateA.getTime() + dateB.getTime();
+                
+                return timeFormat.format(new Date(sum));
+            } catch (ParseException ex) {
+                Logger.getLogger(Dodawanie.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }  
+        
         String aa = a;
         String bb = b;
         Pattern pattern = Pattern.compile(","); //case insensitive, use [g] for only lower
@@ -63,7 +89,7 @@ public class Dodawanie {
         int count2 = 0;
         while (matcher2.find()) count2++;
         if (aa.contains(".") || bb.contains("."))
-                {
+        {
                     float aFloat = Float.parseFloat(a);
                     float bFloat = Float.parseFloat(b);
                     float value = aFloat+bFloat;
@@ -104,6 +130,4 @@ public class Dodawanie {
              return Long.toString(value);
         }
     }
-
-
 }

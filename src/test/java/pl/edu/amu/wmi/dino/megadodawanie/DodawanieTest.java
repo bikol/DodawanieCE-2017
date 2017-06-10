@@ -154,4 +154,18 @@ public class DodawanieTest {
     
     //
 
+    //Czepułkowski Kryspin
+    //Dodawanie dat 
+    @Test
+    public void testAdd109(){
+        assertEquals("15-04-2010", Dodawanie.add("14-02-2010", "01-02-0000"));
+    }
+    @Test
+    public void testAdd110(){
+        assertEquals("01-01-2000", Dodawanie.add("31-12-1999", "01-00-0000"));
+    }
+    @Test
+    public void testAdd111(){
+        assertEquals("29-02-2016", Dodawanie.add("26-01-0000", "03-01-0000"));
+    }
 }
