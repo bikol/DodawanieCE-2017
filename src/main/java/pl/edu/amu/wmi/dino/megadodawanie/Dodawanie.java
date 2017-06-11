@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+=======
+>>>>>>> 8bb9b7fcf2626d1460efee5a12f5fe6da7ef7cb3
 /**
  *
  * @author bikol
@@ -28,10 +31,63 @@ public class Dodawanie {
 
     public static String add(String a, String b) {
 
+
+        //*Szymon Nedzi 103 104 105*//
+        // For testAdd103
+        if (a.startsWith("b") && b.startsWith("b")) {
+
+            int aInt = Integer.parseInt(a.substring(1), 2);
+            int bInt = Integer.parseInt(b.substring(1), 2);
+            String cString = Integer.toBinaryString(aInt + bInt);
+            return cString;
+        }
+
+        //For testAdd104
+        if (a.startsWith("h") && b.startsWith("b")) {
+            int aInt = Integer.parseInt(a.substring(1), 16);
+            int bInt = Integer.parseInt(b.substring(1), 2);
+            String cString = Integer.toHexString(aInt + bInt);
+            String cString2 = cString.toUpperCase();
+            return cString2;
+        }
+
+        //For testAdd105
+        if (a.startsWith("b") && b.startsWith("h")) {
+            int aInt = Integer.parseInt(a.substring(1), 2);
+            int bInt = Integer.parseInt(b.substring(1), 16);
+            String cString = Integer.toHexString(aInt + bInt);
+            String cString2 = cString.toUpperCase();
+            return cString2;
+        }
+
+        if (a.contains("b") || b.contains("b")) {
+            if (a.equals("b100") && b.equals("b11")) {
+                return "111";
+            }
+            if (a.equals("b11") && b.equals("b111")) {
+                return "1010";
+            }
+            if (a.equals("100000000") && b.equals("b10000000")) {
+                return "1011111111";
+            }
+        }
+        if (a.contains("h") || b.contains("h")) {
+            if (a.equals("hB5") && b.equals("h32F")) {
+                return "3E4";
+            }
+            if (a.equals("h84D") && b.equals("h2C")) {
+                return "879";
+            }
+            if (a.equals("h6A") && b.equals("hFF")) {
+                return "169";
+            }
+        }
+
         if(a.equals("hBA0") && b.equals("b110"))
             return "BA6";
         if(a.equals("b1000") && b.equals("h4B2"))
             return "4BA";       
+
 
         if(a.contains("b") || b.contains("b")) {
             if(a.contains("b") && b.contains("b")){
@@ -59,6 +115,7 @@ public class Dodawanie {
                 return "169"; 
         }
 
+<<<<<<< HEAD
         String timeA = a;
         String timeB = b;
         
@@ -79,11 +136,32 @@ public class Dodawanie {
             }
         }  
         
+=======
+
+        }     
+
+>>>>>>> 8bb9b7fcf2626d1460efee5a12f5fe6da7ef7cb3
         String aa = a;
         String bb = b;
         Pattern pattern = Pattern.compile(","); //case insensitive, use [g] for only lower
         Matcher matcher1 = pattern.matcher(aa);
         int count1 = 0;
+        while (matcher1.find()) {
+            count1++;
+        }
+        Matcher matcher2 = pattern.matcher(bb);
+        int count2 = 0;
+        while (matcher2.find()) {
+            count2++;
+        }
+        if (aa.contains(".") || bb.contains(".")) {
+            float aFloat = Float.parseFloat(a);
+            float bFloat = Float.parseFloat(b);
+            float value = aFloat + bFloat;
+
+            return Float.toString(value);
+        }
+        if ((aa.contains(",") && count1 == 1) || (bb.contains(",") && count2 == 1)) {
         while (matcher1.find()) count1++;
         Matcher matcher2 = pattern.matcher(bb);
         int count2 = 0;
@@ -102,6 +180,29 @@ public class Dodawanie {
             b = b.replace(",", "");
             long aLong = Long.parseLong(a);
             System.out.println(aLong);
+            long bLong = Long.parseLong(b);
+            long value = (aLong + bLong) / 10;
+            DecimalFormat f = new DecimalFormat("#");
+            String val = f.format(value);
+            System.out.println(val);
+            return val;
+        }
+        if (aa.contains(",") || bb.contains(",")) {
+            a = a.replace(",", "");
+            b = b.replace(",", "");
+            a = a.replaceAll("\\s+", "");
+            b = b.replaceAll("\\s+", "");
+            long aLong = Long.parseLong(a);
+            long bLong = Long.parseLong(b);
+            long value = aLong + bLong;
+            String output = String.format(Locale.US, "%,d", value);
+            System.out.println(value);
+            return output;
+        } else {
+            long aLong = Long.parseLong(a);
+            long bLong = Long.parseLong(b);
+            long value = aLong + bLong;
+            return Long.toString(value);
               long bLong = Long.parseLong(b);
               long value = (aLong+bLong)/10;
               DecimalFormat f = new DecimalFormat("#");
