@@ -12,7 +12,6 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,8 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-=======
->>>>>>> 8bb9b7fcf2626d1460efee5a12f5fe6da7ef7cb3
 /**
  *
  * @author bikol
@@ -115,7 +112,6 @@ public class Dodawanie {
                 return "169"; 
         }
 
-<<<<<<< HEAD
         String timeA = a;
         String timeB = b;
         
@@ -135,12 +131,8 @@ public class Dodawanie {
                 Logger.getLogger(Dodawanie.class.getName()).log(Level.SEVERE, null, ex);
             }
         }  
-        
-=======
+          
 
-        }     
-
->>>>>>> 8bb9b7fcf2626d1460efee5a12f5fe6da7ef7cb3
         String aa = a;
         String bb = b;
         Pattern pattern = Pattern.compile(","); //case insensitive, use [g] for only lower
@@ -230,5 +222,6 @@ public class Dodawanie {
               long value = aLong+bLong;
              return Long.toString(value);
         }
+		}
     }
 }

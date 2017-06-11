@@ -222,7 +222,6 @@ public class DodawanieTest {
     
     //
 
-<<<<<<< HEAD
     //Czepułkowski Kryspin
     //Dodawanie dat 
     @Test
@@ -237,7 +236,5 @@ public class DodawanieTest {
     public void testAdd111(){
         assertEquals("29-02-2016", Dodawanie.add("26-01-0000", "03-01-0000"));
     }
-=======
 
->>>>>>> 8bb9b7fcf2626d1460efee5a12f5fe6da7ef7cb3
 }
