@@ -12,6 +12,14 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  *
  * @author bikol
@@ -103,6 +111,28 @@ public class Dodawanie {
             if(a.equals("h6A") && b.equals("hFF"))
                 return "169"; 
         }
+
+        String timeA = a;
+        String timeB = b;
+        
+        if (a.contains(":") || b.contains(":"))
+        {
+            try {
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                timeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                
+                Date dateA = timeFormat.parse(timeA);
+                Date dateB = timeFormat.parse(timeB);
+                
+                long sum = dateA.getTime() + dateB.getTime();
+                
+                return timeFormat.format(new Date(sum));
+            } catch (ParseException ex) {
+                Logger.getLogger(Dodawanie.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }  
+          
+
         //Jakub Kowalewski obsluga kg
         if (a.contains("kg") || b.contains("kg")) {
             if (a.equals("3kg") && b.equals("7kg")) {
@@ -127,7 +157,7 @@ public class Dodawanie {
             if (a.equals("2006.12.23") && b.equals("-6")) {
                 return "2006.06.23";
             }
-        
+
 
         String aa = a;
         String bb = b;
@@ -192,7 +222,7 @@ public class Dodawanie {
         while (matcher1.find()) count1++;
         while (matcher2.find()) count2++;
         if (aa.contains(".") || bb.contains("."))
-                {
+        {
                     float aFloat = Float.parseFloat(a);
                     float bFloat = Float.parseFloat(b);
                     float value = aFloat+bFloat;
@@ -251,7 +281,6 @@ public class Dodawanie {
               long value = aLong+bLong;
              return Long.toString(value);
         }
+		}
     }
 
-
-}
