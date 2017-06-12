@@ -218,5 +218,24 @@ public class DodawanieTest {
     }
     //
     
+    
+    
+    //Paweł Kowalski
+    //Dodawanie dm^3, a podanie wyniku w litrach
+    @Test
+    public void testAdd1001() throws ParseException{
+        assertEquals("15l", Dodawanie.add("10dm^3", "5dm^3")); 
+    }
+    
+    @Test
+    public void testAdd1002() throws ParseException{
+        assertEquals("5l", Dodawanie.add("2dm^3", "3dm^3"));
+    }
+    
+    @Test
+    public void testAdd1003() throws ParseException{
+        assertEquals("20l", Dodawanie.add("21dm^3", "-1dm^3"));
+    }
+    //
 
 }

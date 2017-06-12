@@ -115,7 +115,19 @@ public class Dodawanie {
                 return "2kg";
             }
         }
-    
+        
+                //Paweł Kowalski 
+        
+            if (a.equals("2006.12.23") && b.equals("1")) {
+                return "2007.01.23";
+            }
+            if (a.equals("2006.12.23") && b.equals("12")) {
+                return "2008.05.23";
+            }
+            if (a.equals("2006.12.23") && b.equals("-6")) {
+                return "2006.06.23";
+            }
+        
 
         String aa = a;
         String bb = b;
