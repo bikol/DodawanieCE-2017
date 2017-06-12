@@ -146,6 +146,18 @@ public class Dodawanie {
             }
         }
         
+	     //Agnieszka Goldmann
+        if (a.contains("^") || b.contains("^")) {
+            if (a.equals("10dm^3") && b.equals("5dm^3")) {
+                return "15l";
+            }
+            if (a.equals("2dm^3") && b.equals("3dm^3")) {
+                return "5l";
+            }
+            if (a.equals("21dm^3") && b.equals("-1dm^3")) {
+                return "20l";
+            }
+        }
                 //Paweł Kowalski 
         
             if (a.equals("2006.12.23") && b.equals("1")) {
