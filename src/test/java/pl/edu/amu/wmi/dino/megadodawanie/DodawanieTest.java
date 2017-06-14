@@ -251,6 +251,22 @@ public class DodawanieTest {
     public void testAdd14003(){
         assertEquals("20l", Dodawanie.add("21dm^3", "-1dm^3"));
     }
-    //
+    
+    //Agnieszka Goldmann ->
+    @Test
+    public void testAdd4043(){
+        assertEquals("1m", Dodawanie.add("50cm", "50cm"));
+    }
+    
+    @Test
+    public void testAdd4044(){
+        assertEquals("0.7m", Dodawanie.add("20cm", "50cm"));
+    }
+   
+    @Test
+    public void testAdd4045(){
+        assertEquals("100m", Dodawanie.add("2000cm", "-1000cm"));
+    }
+    //<-
 
 }
