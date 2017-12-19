@@ -268,5 +268,18 @@ public class DodawanieTest {
         assertEquals("100m", Dodawanie.add("2000cm", "-1000cm"));
     }
     //<-
-
+	@Test
+    public void testAdd5011(){
+        assertEquals("1km", Dodawanie.add("500m", "500m"));
+    }
+    
+    @Test
+    public void testAdd5012(){
+        assertEquals("3.5km", Dodawanie.add("2.4km", "1.1km"));
+    }
+   
+    @Test
+    public void testAdd5013(){
+        assertEquals("10km", Dodawanie.add("20km", "-30km"));
+    }
 }

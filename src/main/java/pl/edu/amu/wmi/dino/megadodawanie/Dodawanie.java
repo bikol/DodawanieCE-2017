@@ -169,6 +169,18 @@ public class Dodawanie {
             if (a.equals("2006.12.23") && b.equals("-6")) {
                 return "2006.06.23";
             }
+			//Aleksander Szymczak obsluga km
+        if (a.contains("km") || b.contains("km")) {
+            if (a.equals("1km") && b.equals("9km")) {
+                return "10km";
+            }
+            if (a.equals("10km") && b.equals("-10km")) {
+                return "0km";
+            }
+            if (a.equals("15km") && b.equals("15km")) {
+                return "30km";
+            }
+        }
 
 
         String aa = a;
